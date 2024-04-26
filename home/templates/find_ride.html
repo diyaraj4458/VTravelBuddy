@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Find Ride{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Find a Ride</h1>
+
+    <!-- Filter Form -->
+    <form method="get" action="{% url 'find_ride' %}">
+        <label for="date_filter">Filter by Date:</label>
+        <input type="date" id="date_filter" name="date_filter">
+        <br><br>
+        <label for="departure_filter">Filter by Departure:</label>
+        <select class="form-control" id="departure" name="departure">
+            <option value="">None</option>
+            <option>Bhopal Junction</option>
+            <option>Rani Kamlapati</option>
+            <option>Sehore</option>
+            <option>Sant Hirdaram Nagar</option>
+            <option>Indore Junction</option>
+            <option>Bhopal Airport</option>
+            <option>Indore Airport</option>
+            <option>VIT Bhopal</option>
+        </select>
+        <label for="destination_filter">Filter by Destination:</label>
+        <select class="form-control" id="destination" name="destination">
+            <option value="">None</option>
+            <option>Bhopal Junction</option>
+            <option>Rani Kamlapati</option>
+            <option>Sehore</option>
+            <option>Sant Hirdaram Nagar</option>
+            <option>Indore Junction</option>
+            <option>Bhopal Airport</option>
+            <option>Indore Airport</option>
+            <option>VIT Bhopal</option>
+        </select>
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+      
+        th, td {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+      
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+    </style>
+      
+    <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Departure</th>
+            <th>Destination</th>
+            <th>Time</th>
+            <th>Seats</th>
+            <th>Price</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ride in rides %}
+            <tr>
+              <td>{{ ride.date }}</td>
+              <td>{{ ride.departure }}</td>
+              <td>{{ ride.destination }}</td>
+              <td>{{ ride.time }}</td>
+              <td>{{ ride.seats }}</td>
+              <td>{{ ride.price }}</td>
+              <td>{{ ride.mobile }}</td>
+              <td>
+                {% if ride.gender == 'Male' %}
+                    Male
+                {% elif ride.gender == 'Female' %}
+                    Female
+                {% else %}
+                    Unknown
+                {% endif %}
+              </td>
+              <td>{{ ride.description }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="8">No rides found.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
