@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # home.urls.py
 
 from django.contrib import admin
@@ -19,3 +20,26 @@ urlpatterns = [
    path('logout/',views.logout_view,name='logout'),
    path('dashboard/',views.dashboard_view,name='dashboard'),
 ]
+=======
+# home.urls.py
+
+from django.contrib import admin
+from django.urls import path
+from home import views
+from django.contrib.auth import views as auth_views
+
+
+urlpatterns = [
+   path("",views.index,name='home'),
+   path("about",views.about,name='about'),
+   path("contact",views.contact,name='contact'),
+   path("post_ride",views.post_ride,name='post_ride'),
+   path("find_ride",views.find_ride,name='find_ride'),
+   # path('login/', auth_views.LoginView.as_view(), name='login'),
+   # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+   path('register/',views.register_view,name='register'),
+   path('login/',views.login_view,name='login'),
+   path('logout/',views.logout_view,name='logout'),
+   path('dashboard/',views.dashboard_view,name='dashboard'),
+]
+>>>>>>> 838d2cbc9c2367b6ce64e22da731293db2b84c0d

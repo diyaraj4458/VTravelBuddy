@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 WSGI config for VTravelBuddy project.
 
@@ -14,3 +15,21 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'VTravelBuddy.settings')
 
 application = get_wsgi_application()
+=======
+"""
+WSGI config for VTravelBuddy project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'VTravelBuddy.settings')
+
+application = get_wsgi_application()
+>>>>>>> 838d2cbc9c2367b6ce64e22da731293db2b84c0d

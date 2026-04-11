@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% block content %}
@@ -6,4 +7,14 @@
 <a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
 
 
+=======
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Dashboard : {{ request.user.username }}</h1>
+<a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
+
+
+>>>>>>> 838d2cbc9c2367b6ce64e22da731293db2b84c0d
 {% endblock %}
